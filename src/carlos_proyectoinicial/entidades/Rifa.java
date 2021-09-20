@@ -16,7 +16,8 @@ public class Rifa {
 
     String nombre;
     int[] carton = new int[5];
-    ArrayList db = new ArrayList();
+    int[] premiado = new int[5];
+    public ArrayList db = new ArrayList();
     
     
     public Rifa(){
@@ -45,7 +46,6 @@ public class Rifa {
                     AnadirJugador();
                     break;
                 case 2:
-                    GenerarPremiado();
                     ContarAciertos();
                     RepartirPremio();
                     break;
@@ -66,16 +66,20 @@ public class Rifa {
         db.add(new Rifa(nombreAuxiliar));
     }
     
-    public int[] GenerarPremiado(){
-        int[] carton_premiado = new int[5];
-        for (int i = 0; i < carton_premiado.length; i++) {
-            carton_premiado[i] = (int) (Math.random() * 100 + 1);
+    public void GenerarPremiado(){
+        for (int i = 0; i < premiado.length; i++) {
+            premiado[i] = (int) (Math.random() * 100 + 1);
         }
-        return carton_premiado;
     }
     
     public void ContarAciertos(){
-        
+        for (int i = 0; i < premiado.length; i++) {
+            for (int j = 0; j < db.size(); j++) {
+                for (int k = 0; k < 6; k++) {
+                    
+                }
+            }
+        }
     }
     
     public void RepartirPremio(){
