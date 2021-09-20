@@ -5,6 +5,7 @@
  */
 package carlos_proyectoinicial.entidades;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -13,8 +14,9 @@ import java.util.Scanner;
  */
 public class Rifa {
 
-    private String nombre;
-    private int[] carton = new int[5];
+    String nombre;
+    int[] carton = new int[5];
+    ArrayList db = new ArrayList();
     
     
     public Rifa(){
@@ -43,6 +45,9 @@ public class Rifa {
                     AnadirJugador();
                     break;
                 case 2:
+                    GenerarPremiado();
+                    ContarAciertos();
+                    RepartirPremio();
                     break;
                 default:
                     System.out.println("opcion erronea");
@@ -54,15 +59,19 @@ public class Rifa {
     
     public void AnadirJugador(){
         Scanner sc = new Scanner(System.in);
-        String nombreAuxiliar;
         
         System.out.println("Como te llamas");
-        nombreAuxiliar = sc.nextLine();
-        
-        Rifa jugador = new Rifa(nombreAuxiliar);
+        String nombreAuxiliar = sc.nextLine();
+
+        db.add(new Rifa(nombreAuxiliar));
     }
     
-    public void GenerarPremiado(){
+    public int[] GenerarPremiado(){
+        int[] carton_premiado = new int[5];
+        for (int i = 0; i < carton_premiado.length; i++) {
+            carton_premiado[i] = (int) (Math.random() * 100 + 1);
+        }
+        return carton_premiado;
     }
     
     public void ContarAciertos(){
@@ -73,31 +82,31 @@ public class Rifa {
         
     }
 
-    /**
-     * @return the nombre
-     */
-    public String getNombre() {
-        return nombre;
-    }
-
-    /**
-     * @return the carton
-     */
-    public int[] getCarton() {
-        return carton;
-    }
-
-    /**
-     * @param nombre the nombre to set
-     */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    /**
-     * @param carton the carton to set
-     */
-    public void setCarton(int[] carton) {
-        this.carton = carton;
-    }
+//    /**
+//     * @return the nombre
+//     */
+//    public String getNombre() {
+//        return nombre;
+//    }
+//
+//    /**
+//     * @return the carton
+//     */
+//    public int[] getCarton() {
+//        return carton;
+//    }
+//
+//    /**
+//     * @param nombre the nombre to set
+//     */
+//    public void setNombre(String nombre) {
+//        this.nombre = nombre;
+//    }
+//
+//    /**
+//     * @param carton the carton to set
+//     */
+//    public void setCarton(int[] carton) {
+//        this.carton = carton;
+//    }
 }

@@ -5,6 +5,7 @@
  */
 package carlos_proyectoinicial;
 
+import carlos_proyectoinicial.entidades.Rifa;
 import java.util.Scanner;
 
 /**
@@ -19,7 +20,7 @@ public class main {
     public static void main(String[] args) {
         Scanner sc_int = new Scanner(System.in);
         Scanner sc_string = new Scanner(System.in);
-        
+        Rifa acceso = new Rifa();
         int opcion = 0;
               
         do{
@@ -32,6 +33,7 @@ public class main {
             switch(opcion){
                 case 1:
                     System.out.println("juego de la rifa");
+                    acceso.IniciarRifa();
                     break;
                 case 2:
                     System.out.println("juego de la aventura");
