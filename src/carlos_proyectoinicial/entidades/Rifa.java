@@ -17,7 +17,8 @@ public class Rifa {
     String nombre;
     int[] carton = new int[5];
     int[] premiado = new int[5];
-    public ArrayList db = new ArrayList();
+    int numeroaciertos = 0;
+    ArrayList<Rifa> basedatos;
     
     
     public Rifa(){
@@ -26,13 +27,14 @@ public class Rifa {
     
     public Rifa(String nombre){
         this.nombre = nombre;
-        for (int i = 0; i < carton.length; i++) {
-            carton[i] = (int) (Math.random() * 100 + 1);
+        for (int i = 0; i < this.carton.length; i++) {
+            this.carton[i] = (int) (Math.random() * 100 + 1);
         }
     }
     
     public void IniciarRifa(){
         int opcion;
+        basedatos = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         
         do {
@@ -46,6 +48,7 @@ public class Rifa {
                     AnadirJugador();
                     break;
                 case 2:
+                    GenerarPremiado();
                     ContarAciertos();
                     RepartirPremio();
                     break;
@@ -63,7 +66,7 @@ public class Rifa {
         System.out.println("Como te llamas");
         String nombreAuxiliar = sc.nextLine();
 
-        db.add(new Rifa(nombreAuxiliar));
+        basedatos.add(new Rifa(nombreAuxiliar));
     }
     
     public void GenerarPremiado(){
@@ -73,44 +76,29 @@ public class Rifa {
     }
     
     public void ContarAciertos(){
-        for (int i = 0; i < premiado.length; i++) {
-            for (int j = 0; j < db.size(); j++) {
-                for (int k = 0; k < 6; k++) {
-                    
+        for (int i = 0; i < basedatos.size(); i++) {
+            for (int j = 0; j < basedatos.get(i).carton.length; j++) {
+                for (int k = 0; k < premiado.length; k++) {
+                    if (basedatos.get(i).carton[j]==premiado[k]) {
+                        basedatos.get(i).numeroaciertos++;
+                    }
                 }
             }
         }
     }
     
     public void RepartirPremio(){
-        
+        int aciertostotales = 0;
+        for (int i = 0; i < basedatos.size(); i++) {
+            aciertostotales = aciertostotales + basedatos.get(i).numeroaciertos;
+        }
+        if (aciertostotales==0) {
+            aciertostotales=1;
+        }
+        for (int i = 0; i < basedatos.size(); i++) {
+            System.out.println("jugador: "+basedatos.get(i).nombre);
+            System.out.println("acierto: "+basedatos.get(i).numeroaciertos);
+            System.out.println("premio ganado: "+((basedatos.get(i).numeroaciertos*(basedatos.size()*10))/aciertostotales));
+        }
     }
-
-//    /**
-//     * @return the nombre
-//     */
-//    public String getNombre() {
-//        return nombre;
-//    }
-//
-//    /**
-//     * @return the carton
-//     */
-//    public int[] getCarton() {
-//        return carton;
-//    }
-//
-//    /**
-//     * @param nombre the nombre to set
-//     */
-//    public void setNombre(String nombre) {
-//        this.nombre = nombre;
-//    }
-//
-//    /**
-//     * @param carton the carton to set
-//     */
-//    public void setCarton(int[] carton) {
-//        this.carton = carton;
-//    }
 }
