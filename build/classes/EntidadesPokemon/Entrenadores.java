@@ -10,11 +10,9 @@ import java.util.ArrayList;
  *
  * @author Manuel
  */
-public class Aventura {
-    Entrenadores prota = new Entrenadores();
-    ArrayList<Entrenadores> LideresGimnasio = new ArrayList<Entrenadores>();
-    ArrayList<Entrenadores> AltoMando = new ArrayList<Entrenadores>();
-    ArrayList<Pokemon> pokemons = new  ArrayList<Pokemon>();
+public class Entrenadores {
+    String nombre;
+    Pokemon[] equipo = new Pokemon[6];
+    ArrayList<Objetos> mochila = new ArrayList<Objetos>();
     
-
 }
