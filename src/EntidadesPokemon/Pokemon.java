@@ -15,6 +15,7 @@ public class Pokemon {
     String habilidad;
     Movimientos[] set = new Movimientos[4];
     int ps;
+    int psiniciales;
     int at;
     int def;
     int ae;
@@ -27,12 +28,13 @@ public class Pokemon {
         
     }
 
-    public Pokemon(String nombre, String[] tipos, String habilidad, Movimientos[] set, int ps, int at, int def, int ae, int dep, int ve, Boolean posibilidadmega) {
+    public Pokemon(String nombre, String[] tipos, String habilidad, Movimientos[] set, int ps,int psiniciales, int at, int def, int ae, int dep, int ve, Boolean posibilidadmega) {
         this.nombre = nombre;
         this.tipos = tipos;
         this.habilidad = habilidad;
         this.set = set;
         this.ps = ps;
+        this.psiniciales = psiniciales;
         this.at = at;
         this.def = def;
         this.ae = ae;

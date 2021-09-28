@@ -16,6 +16,7 @@ public class AventuraPokemon {
     ArrayList<Entrenadores> LideresGimnasio = new ArrayList<Entrenadores>();
     ArrayList<Entrenadores> AltoMando = new ArrayList<Entrenadores>();
     ArrayList<Pokemon> pokemons = new  ArrayList<Pokemon>();
+    
     Objetos[] objeto = new Objetos[3];
 
     public AventuraPokemon() {
@@ -26,10 +27,9 @@ public class AventuraPokemon {
     }
     
     public void InicioAventura(){
-        objeto[0].nombre = "Max Pocion";
-        
         Introduccion();
         CrearPersonaje();    
+        UsarObjetos();
     }
     
     public void Introduccion(){
@@ -59,36 +59,56 @@ public class AventuraPokemon {
     public void UsarObjetos(){
         Scanner sc = new Scanner(System.in);
         int pokemon = 0;
-        int opcion = Integer.parseInt(sc.nextLine());
         System.out.println("Los objetos solo los puedes una vez por combate");
         System.out.println("1. Max Pocion\n2. Max Revivir\n3. Max PP");
+        int opcion = Integer.parseInt(sc.nextLine());
         switch(opcion){
             case 1:
                 System.out.println("¿A que pokemon quieres recuperar la vida?");
-                /*mostrar listado de los nombres de los pokemons ordenados con numeros*/
+                for (int i = 0; i < prota.equipo.length; i++) {
+                    System.out.println(i+"."+prota.equipo[i].nombre);
+                }
                 pokemon = Integer.parseInt(sc.nextLine());
-                /*recuperar la vida del pokemon*/
-                System.out.println("Usaste Max Pocion, recuperaste todos lo ps de tu " /*pokemon.getnombre()*/);
+                prota.equipo[pokemon].ps = prota.equipo[pokemon].psiniciales;
+                System.out.println("Usaste Max Pocion, recuperaste todos lo ps de tu " + prota.equipo[pokemon].nombre);
                 break;
             case 2:
                 System.out.println("¿Que pokemon quieres revivir?");
-                /*mostrar listado de los nombres de los pokemons ordenados con numeros*/
+                for (int i = 0; i < prota.equipo.length; i++) {
+                    System.out.println(i+"."+prota.equipo[i].nombre);
+                }
                 pokemon = Integer.parseInt(sc.nextLine());
-                /*revivir pokemon*/
-                System.out.println("Usaste Max Revivir, reviviste tu "/*pokemon.getnombre()*/+" con toda la vida" );
+                if(prota.equipo[pokemon].ps>=0){
+                    prota.equipo[pokemon].ps = prota.equipo[pokemon].psiniciales;
+                }else{
+                    System.out.println("no es posible usar Max revivir en este pokemon");
+                }
+                System.out.println("Usaste Max Revivir, reviviste tu "+ prota.equipo[pokemon].nombre+" con toda la vida" );
                 break;
             case 3:
                 int movimiento = 0;
                 System.out.println("¿A que pokemon quieres recuperarle los pp?");
-                /*mostrar listado de los nombres de los pokemons ordenados con numeros*/
+                for (int i = 0; i < prota.equipo.length; i++) {
+                    System.out.println(i+"."+prota.equipo[i].nombre);
+                }
                 pokemon = Integer.parseInt(sc.nextLine());
-                System.out.println("¿que ataque quieres recuperar?");
-                /*sacar listado de los ataque del pokemon elegido ordenado por numeros*/
+                System.out.println("¿Que ataque quieres recuperar?");
+                for (int i = 0; i < prota.equipo[pokemon].set.length; i++) {
+                    System.out.println(i+"."+prota.equipo[i].set[i].nombre);
+                }
                 movimiento = Integer.parseInt(sc.nextLine());
-                /*recuperar los pp del movimiento*/
-                System.out.println("Usaste Max Revivir, reviviste tu "/*pokemon.getnombre()*/+" con toda la vida" );
+                prota.equipo[movimiento].set[movimiento].pp = prota.equipo[movimiento].set[movimiento].ppiniciales;
+                System.out.println("Usaste Max PP, recuperaste todos los pp de "+prota.equipo[movimiento].set[movimiento].nombre+
+                        " de tu"+ prota.equipo[pokemon].nombre+" con toda la vida" );
                 break;
         }
+    }
+    
+    public void inicializar(){
+        objeto[0].nombre = "Max Pocion";
+        objeto[1].nombre = "Max Revivir";
+        objeto[2].nombre = "Max PP";
+        LideresGimnasio.add(prota);
     }
         
 }

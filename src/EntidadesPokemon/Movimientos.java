@@ -10,15 +10,17 @@ public class Movimientos {
     int dano;
     int precision;
     int pp;
+    int ppiniciales;
 
     public Movimientos() {
     }
 
-    public Movimientos(String nombre, int dano, int precision, int pp) {
+    public Movimientos(String nombre, int dano, int precision, int pp, int ppiniciales) {
         this.nombre = nombre;
         this.dano = dano;
         this.precision = precision;
         this.pp = pp;
+        this.pp = ppiniciales;
     }
 
     @Override
