@@ -4,13 +4,10 @@
  */
 package EntidadesPokemon;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Manuel
  */
-public class Aventura {
-    ArrayList<Entrenadores> prota = new ArrayList<Entrenadores>();
+public class Objetos {
     
 }

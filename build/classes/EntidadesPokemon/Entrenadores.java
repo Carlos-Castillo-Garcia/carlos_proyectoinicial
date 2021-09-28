@@ -14,18 +14,5 @@ public class Entrenadores {
     String nombre;
     Pokemon[] equipo = new Pokemon[6];
     ArrayList<Objetos> mochila = new ArrayList<Objetos>();
-
-    public Entrenadores() {
-    }
-
-    public Entrenadores(String nombre) {
-        this.nombre = nombre;
-    }
-
-    @Override
-    public String toString() {
-        return "Entrenadores{" + "nombre=" + nombre + ", equipo=" + equipo + ", mochila=" + mochila + '}';
-    }
-    
     
 }
