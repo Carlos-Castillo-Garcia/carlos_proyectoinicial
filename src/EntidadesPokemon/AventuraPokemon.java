@@ -16,6 +16,7 @@ public class AventuraPokemon {
     ArrayList<Entrenadores> LideresGimnasio = new ArrayList<Entrenadores>();
     ArrayList<Entrenadores> AltoMando = new ArrayList<Entrenadores>();
     ArrayList<Pokemon> pokemons = new  ArrayList<Pokemon>();
+    Objetos[] objeto = new Objetos[3];
 
     public AventuraPokemon() {
     }
@@ -25,10 +26,10 @@ public class AventuraPokemon {
     }
     
     public void InicioAventura(){
-        Introduccion();
-        CrearPersonaje();
-//        ElegirPokemons();
+        objeto[0].nombre = "Max Pocion";
         
+        Introduccion();
+        CrearPersonaje();    
     }
     
     public void Introduccion(){
@@ -39,14 +40,14 @@ public class AventuraPokemon {
     public void CrearPersonaje(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Cual es tu nombre: ");
-        prota.setNombre(sc.nextLine());
+        prota.nombre = sc.nextLine();
     }   
     
     public void ElegirPokemons(){
         Scanner sc = new Scanner(System.in);
         int respuesta = 0;
-        for (int i = 0; i < prota.getEquipo().length; i++) {
-            System.out.println("Pokemon numero 1: " /* agregar el nombre del pokemon*/);
+        for (int i = 0; i < prota.equipo.length; i++) {
+            System.out.println("Pokemon numero 1: " /*pokemon.getnombre()*/);
             System.out.println("¿Quieres tener este pokemon en tu equipo? \n 1:si 2:no");
             respuesta = Integer.parseInt(sc.nextLine());
             if(respuesta == 1){
@@ -55,8 +56,39 @@ public class AventuraPokemon {
         }
     }
     
-    public void Combates(){
-        
+    public void UsarObjetos(){
+        Scanner sc = new Scanner(System.in);
+        int pokemon = 0;
+        int opcion = Integer.parseInt(sc.nextLine());
+        System.out.println("Los objetos solo los puedes una vez por combate");
+        System.out.println("1. Max Pocion\n2. Max Revivir\n3. Max PP");
+        switch(opcion){
+            case 1:
+                System.out.println("¿A que pokemon quieres recuperar la vida?");
+                /*mostrar listado de los nombres de los pokemons ordenados con numeros*/
+                pokemon = Integer.parseInt(sc.nextLine());
+                /*recuperar la vida del pokemon*/
+                System.out.println("Usaste Max Pocion, recuperaste todos lo ps de tu " /*pokemon.getnombre()*/);
+                break;
+            case 2:
+                System.out.println("¿Que pokemon quieres revivir?");
+                /*mostrar listado de los nombres de los pokemons ordenados con numeros*/
+                pokemon = Integer.parseInt(sc.nextLine());
+                /*revivir pokemon*/
+                System.out.println("Usaste Max Revivir, reviviste tu "/*pokemon.getnombre()*/+" con toda la vida" );
+                break;
+            case 3:
+                int movimiento = 0;
+                System.out.println("¿A que pokemon quieres recuperarle los pp?");
+                /*mostrar listado de los nombres de los pokemons ordenados con numeros*/
+                pokemon = Integer.parseInt(sc.nextLine());
+                System.out.println("¿que ataque quieres recuperar?");
+                /*sacar listado de los ataque del pokemon elegido ordenado por numeros*/
+                movimiento = Integer.parseInt(sc.nextLine());
+                /*recuperar los pp del movimiento*/
+                System.out.println("Usaste Max Revivir, reviviste tu "/*pokemon.getnombre()*/+" con toda la vida" );
+                break;
+        }
     }
-    
+        
 }
