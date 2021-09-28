@@ -1,7 +1,6 @@
 package carlos_proyectoinicial.entidades;
 
 import java.util.Scanner;
-import sun.print.PeekGraphics;
 
 /**
  *
@@ -79,7 +78,7 @@ public class Aventura {
         for (int i = 0; i < grupo.length; i++) {
             System.out.println(grupo[i].nombre + " intenta saltar el foso.");
             if (LanzarDado(grupo[i].fuerza + grupo[i].destreza) >= foso.dificultad) {
-                System.out.println(grupo[i].nombre + " salta e,l foso.");
+                System.out.println(grupo[i].nombre + " salta el foso.");
             } else {
                 System.out.println(grupo[i].nombre + " se cae al foso y sufre " + foso.daño + "puntos de vida");
                 grupo[i].vida -= foso.daño;
