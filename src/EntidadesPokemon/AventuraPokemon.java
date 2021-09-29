@@ -16,7 +16,6 @@ public class AventuraPokemon {
     Entrenadores[] AltoMando = new Entrenadores[4];
     Entrenadores Campeon = new Entrenadores();
     Pokemon[] Pokedex = new Pokemon[78];
-    
     Objetos[] objeto = new Objetos[3];
 
     public AventuraPokemon() {
@@ -28,7 +27,9 @@ public class AventuraPokemon {
     
     public void InicioAventura(){
         Introduccion();
-        CrearPersonaje();    
+        inicializar();
+        CrearPersonaje(); 
+        ElegirPokemons();
         UsarObjetos();
     }
     
@@ -47,11 +48,12 @@ public class AventuraPokemon {
         Scanner sc = new Scanner(System.in);
         int respuesta = 0;
         for (int i = 0; i < prota.equipo.length; i++) {
-            System.out.println("Pokemon numero 1: " /*pokemon.getnombre()*/);
+            System.out.println("Pokemon numero 1: " + Pokedex[i].nombre);
             System.out.println("¿Quieres tener este pokemon en tu equipo? \n 1:si 2:no");
             respuesta = Integer.parseInt(sc.nextLine());
             if(respuesta == 1){
-                //insertar el pokemon en el equipo
+                prota.equipo[i] = Pokedex[i];
+                System.out.println(prota.equipo[i].nombre);
             }
         }
     }
@@ -188,7 +190,6 @@ public class AventuraPokemon {
         Pokedex[77].nombre = "Decidueye";Pokedex[77].tipos[0] = "planta";Pokedex[77].tipos[1] = "fantasma";Pokedex[77].habilidad = "Espesura";Pokedex[77].ps =78;Pokedex[77].psiniciales =78 ;Pokedex[77].at =107 ;Pokedex[77].def =75 ;Pokedex[77].ae =100 ;Pokedex[77].dep =100 ;Pokedex[77].ve =70 ;Pokedex[77].posibilidadmega = false;
         Pokedex[78].nombre = "Decidueye";Pokedex[78].tipos[0] = "planta";Pokedex[78].tipos[1] = "fantasma";Pokedex[78].habilidad = "Espesura";Pokedex[78].ps =78;Pokedex[78].psiniciales =78 ;Pokedex[78].at =107 ;Pokedex[78].def =75 ;Pokedex[78].ae =100 ;Pokedex[78].dep =100 ;Pokedex[78].ve =70 ;Pokedex[78].posibilidadmega = false;
         Pokedex[79].nombre = "Decidueye";Pokedex[79].tipos[0] = "planta";Pokedex[79].tipos[1] = "fantasma";Pokedex[79].habilidad = "Espesura";Pokedex[79].ps =78;Pokedex[79].psiniciales =78 ;Pokedex[79].at =107 ;Pokedex[79].def =75 ;Pokedex[79].ae =100 ;Pokedex[79].dep =100 ;Pokedex[79].ve =70 ;Pokedex[79].posibilidadmega = false;
-
     }
         
 }
