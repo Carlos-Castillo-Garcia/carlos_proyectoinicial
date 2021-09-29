@@ -41,8 +41,7 @@ public class Pokemon {
         this.dep = dep;
         this.ve = ve;
         this.posibilidadmega = posibilidadmega;
-    }
-    
+    }    
     public void Megas(){
         
         if(posibilidadmega) {
