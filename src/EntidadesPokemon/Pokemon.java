@@ -27,7 +27,6 @@ public class Pokemon {
     public Pokemon() {
         
     }
-
     public Pokemon(String nombre, String[] tipos, String habilidad, Movimientos[] set, int ps,int psiniciales, int at, int def, int ae, int dep, int ve, Boolean posibilidadmega) {
         this.nombre = nombre;
         this.tipos = tipos;

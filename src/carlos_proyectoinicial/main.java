@@ -8,6 +8,7 @@ package carlos_proyectoinicial;
 import EntidadesPokemon.AventuraPokemon;
 import carlos_proyectoinicial.entidades.Aventura;
 import carlos_proyectoinicial.entidades.Rifa;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -19,7 +20,7 @@ public class main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner sc_int = new Scanner(System.in);
         Scanner sc_string = new Scanner(System.in);
         Rifa acceso = new Rifa();
