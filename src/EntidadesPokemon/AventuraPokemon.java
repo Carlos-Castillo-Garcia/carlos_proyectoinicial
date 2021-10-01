@@ -115,7 +115,7 @@ public class AventuraPokemon {
     }
 
     public void inicializar() throws FileNotFoundException, IOException {
-        File archivojson = new File("C:\\Users\\CARLOS\\Desktop\\decidueye.json");
+        File archivojson = new File("D:\\Repositorios_Carlos\\carlos_proyectoinicial\\src\\decidueye.json");
         JSONObject json = new JSONObject();
         String cadena;
         FileReader f = new FileReader(archivojson);
@@ -124,43 +124,37 @@ public class AventuraPokemon {
             json = new JSONObject(cadena);
         }
         
-        tipos[0] = json.getJSONArray("types").getJSONObject(0).getJSONObject("type").getString("name");
-        tipos[1] = json.getJSONArray("types").getJSONObject(1).getJSONObject("type").getString("name");
-        set[0] = new Movimientos(json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getString("name"),
-                (int) (json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getNumber("dano")),
-                (int) (json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getNumber("preci")),
-                (int) (json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getNumber("pp")),
-                (int) (json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getNumber("pp")));
-        set[1] = new Movimientos(json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getString("name"),
-                (int) (json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getNumber("dano")),
-                (int) (json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getNumber("preci")),
-                (int) (json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getNumber("pp")),
-                (int) (json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getNumber("pp")));
-        set[2] = new Movimientos(json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getString("name"),
-                (int) (json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getNumber("dano")),
-                (int) (json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getNumber("preci")),
-                (int) (json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getNumber("pp")),
-                (int) (json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getNumber("pp")));
-        set[3] = new Movimientos(json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getString("name"),
-                (int) (json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getNumber("dano")),
-                (int) (json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getNumber("preci")),
-                (int) (json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getNumber("pp")),
-                (int) (json.getJSONArray("moves").getJSONObject(0).getJSONObject("move").getNumber("pp")));
+
+
         
-        Pokemon holder = new Pokemon(
-                json.getString("name"),
+
+        for (int i = 0; i < json.getJSONArray("pokemons").length(); i++) {
+        tipos[0] = json.getJSONArray("pokemons").getJSONObject(i).getJSONArray("types").getJSONObject(0).getJSONObject("type").getString("name");
+        tipos[1] = json.getJSONArray("pokemons").getJSONObject(i).getJSONArray("types").getJSONObject(1).getJSONObject("type").getString("name");
+            for (int j = 0; j < json.getJSONArray("pokemons").getJSONObject(i).getJSONArray("moves").length(); j++) {
+                 set[j] = new Movimientos(json.getJSONArray("pokemons").getJSONObject(i).getJSONArray("moves").getJSONObject(j).getJSONObject("move").getString("name"),
+                (int) (json.getJSONArray("pokemons").getJSONObject(i).getJSONArray("moves").getJSONObject(j).getJSONObject("move").getNumber("dano")),
+                (int) (json.getJSONArray("pokemons").getJSONObject(i).getJSONArray("moves").getJSONObject(j).getJSONObject("move").getNumber("preci")),
+                (int) (json.getJSONArray("pokemons").getJSONObject(i).getJSONArray("moves").getJSONObject(j).getJSONObject("move").getNumber("pp")),
+                (int) (json.getJSONArray("pokemons").getJSONObject(i).getJSONArray("moves").getJSONObject(j).getJSONObject("move").getNumber("pp")));
+            }
+       
+            Pokedex.add(new Pokemon(
+                json.getJSONArray("pokemons").getJSONObject(i).getString("name"),
+                
                 tipos,
-                json.getJSONObject("ability").getString("name"),
+                json.getJSONArray("pokemons").getJSONObject(i).getJSONObject("ability").getString("name"),
                 set,
-                (int) (json.getJSONArray("stats").getJSONObject(0).getNumber("base_stat_hp")),
-                (int) (json.getJSONArray("stats").getJSONObject(0).getNumber("base_stat_hp")),
-                (int) (json.getJSONArray("stats").getJSONObject(1).getNumber("base_stat_attack")),
-                (int) (json.getJSONArray("stats").getJSONObject(2).getNumber("base_stat_defense")),
-                (int) (json.getJSONArray("stats").getJSONObject(3).getNumber("base_stat_special_attack")),
-                (int) (json.getJSONArray("stats").getJSONObject(4).getNumber("base_stat_special_defense")),
-                (int) (json.getJSONArray("stats").getJSONObject(5).getNumber("base_stat_speed")),
-                json.getBoolean("mega"));
-            System.out.println(holder.nombre);
+                (int) (json.getJSONArray("pokemons").getJSONObject(i).getJSONArray("stats").getJSONObject(0).getNumber("base_stat_hp")),
+                (int) (json.getJSONArray("pokemons").getJSONObject(i).getJSONArray("stats").getJSONObject(0).getNumber("base_stat_hp")),
+                (int) (json.getJSONArray("pokemons").getJSONObject(i).getJSONArray("stats").getJSONObject(1).getNumber("base_stat_attack")),
+                (int) (json.getJSONArray("pokemons").getJSONObject(i).getJSONArray("stats").getJSONObject(2).getNumber("base_stat_defense")),
+                (int) (json.getJSONArray("pokemons").getJSONObject(i).getJSONArray("stats").getJSONObject(3).getNumber("base_stat_special_attack")),
+                (int) (json.getJSONArray("pokemons").getJSONObject(i).getJSONArray("stats").getJSONObject(4).getNumber("base_stat_special_defense")),
+                (int) (json.getJSONArray("pokemons").getJSONObject(i).getJSONArray("stats").getJSONObject(5).getNumber("base_stat_speed")),
+                json.getJSONArray("pokemons").getJSONObject(i).getBoolean("mega")));
+        }
+        
     }
 
 }

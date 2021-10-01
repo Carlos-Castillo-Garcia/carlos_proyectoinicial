@@ -199,5 +199,21 @@ public class Pokemon {
         }
     }
     
-    
+    public String mostrar_pokemon(Pokemon pokedex){
+         String  pokemon = new String("nombre:"+ pokedex.nombre
+                    + "\n habilidad: " + pokedex.habilidad
+                    + "\n tipo 1: " + pokedex.tipos[0]
+                    + "\n tipo 2: " + pokedex.tipos[1]
+                    + "\n set: " + pokedex.set[0]    
+                    + "\n set: " + pokedex.set[1]    
+                    + "\n set: " + pokedex.set[2]    
+                    + "\n set: " + pokedex.set[3]    
+                    + "\n stats: " + pokedex.ps
+                    + "\n stats: " + pokedex.at
+                    + "\n stats: " + pokedex.def
+                    + "\n stats: " + pokedex.ae
+                    + "\n stats: " + pokedex.dep
+                    + "\n stats: " + pokedex.ve);    
+         return pokemon;
+    }
 }
