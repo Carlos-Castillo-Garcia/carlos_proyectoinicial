@@ -7,7 +7,7 @@ package EntidadesPokemon;
  */
 public class Movimientos {
     String nombre;
-    int dano;
+    String tipo;
     int precision;
     int pp;
     int ppiniciales;
@@ -15,18 +15,11 @@ public class Movimientos {
     public Movimientos() {
     }
 
-    public Movimientos(String nombre, int dano, int precision, int pp, int ppiniciales) {
+    public Movimientos(String nombre, String tipo, int precision, int pp, int ppiniciales) {
         this.nombre = nombre;
-        this.dano = dano;
+        this.tipo = tipo;
         this.precision = precision;
         this.pp = pp;
         this.pp = ppiniciales;
-    }
-
-    @Override
-    public String toString() {
-        return "Movimientos{" + "nombre=" + nombre + ", dano=" + dano + ", precision=" + precision + ", pp=" + pp + '}';
-    }
-    
-    
+    }    
 }
