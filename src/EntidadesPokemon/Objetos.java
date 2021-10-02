@@ -12,6 +12,7 @@ public class Objetos {
     String nombre;
 
     public Objetos() {
+        
     }
 
     public Objetos(String nombre) {

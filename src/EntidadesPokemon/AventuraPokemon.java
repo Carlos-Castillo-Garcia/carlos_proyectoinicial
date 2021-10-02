@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package EntidadesPokemon;
 
 import java.io.BufferedReader;
@@ -26,6 +22,7 @@ public class AventuraPokemon {
     String[] tipos = new String[2];
     Movimientos[] set = new Movimientos[4];
     ArrayList<Pokemon> Pokedex = new ArrayList<Pokemon>();
+    Tipos tablaTipos = new Tipos();
 
     public AventuraPokemon() {
     }
@@ -36,7 +33,7 @@ public class AventuraPokemon {
 
     public void InicioAventura() throws IOException {
         Introduccion();
-        inicializar();
+        inicializarpokemons();
         CrearPersonaje();
         ElegirPokemons();
         UsarObjetos();
@@ -128,14 +125,13 @@ public class AventuraPokemon {
         }
     }
 
-    public void inicializar() throws FileNotFoundException, IOException {
+    public void inicializarpokemons() throws FileNotFoundException, IOException {
 //      File archivojson = new File("D:\\Repositorios_Carlos\\carlos_proyectoinicial\\src\\decidueye.json");
-        JSONObject json;
         File archivojson = new File("C:\\Users\\CARLOS\\Documents\\NetBeansProjects\\carlos_proyectoinicial\\src\\Pokemons.json");
         FileReader fr = new FileReader(archivojson);
         BufferedReader br = new BufferedReader(fr);
         String pokemons = br.readLine();
-        json = new JSONObject(pokemons);
+        JSONObject json = new JSONObject(pokemons);
 
         for (int i = 0; i < json.getJSONArray("pokemons").length(); i++) {
             tipos[0] = json.getJSONArray("pokemons").getJSONObject(i).getJSONArray("types").getJSONObject(0).getJSONObject("type").getString("name");
@@ -163,5 +159,5 @@ public class AventuraPokemon {
                     json.getJSONArray("pokemons").getJSONObject(i).getBoolean("mega")));
         }
     }
-
+    
 }

@@ -1,7 +1,6 @@
 
 package EntidadesPokemon;
 
-import java.util.ArrayList;
 
 /**
  *
