@@ -1,6 +1,8 @@
 
 package EntidadesPokemon;
 
+import java.util.ArrayList;
+
 
 /**
  *
@@ -8,12 +10,16 @@ package EntidadesPokemon;
  */
 public class Entrenadores {
     String nombre;
-    Pokemon[] equipo = new Pokemon[6];
+    ArrayList<Pokemon> equipo = new ArrayList<Pokemon>();
+    int megas;
 
     public Entrenadores() {
+        megas = 1;
     }
 
-    public Entrenadores(String nombre) {
+    public Entrenadores(String nombre, ArrayList<Pokemon> equipo, int megas) {
         this.nombre = nombre;
+        this.equipo = equipo;
+        this.megas = megas;
     }
 }
